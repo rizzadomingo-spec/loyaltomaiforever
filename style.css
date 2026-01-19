@@ -1412,6 +1412,67 @@ img {
   -ms-flex-align: center;
   align-items: center;
   text-align: left;
+  animation: heroZoomIn 20s ease-out forwards;
+}
+
+@keyframes heroZoomIn {
+  from {
+    transform: scale(1.15);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-lottie {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  width: min(240px, 70vw);
+  height: 200px;
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-lottie.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.hero-lottie iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+/* Fancybox swipe hint overlay */
+.fancybox-swipe-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 16px);
+  width: min(280px, 80vw);
+  height: 220px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fancybox-swipe-hint.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.fancybox-swipe-hint iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
 }
 
 .hero-slider .swiper-button-prev,
@@ -1970,6 +2031,7 @@ img {
 .couple-section .text-grid h3 {
   font-size: 22px;
   font-size: 1.375rem;
+  font-family: "Great Vibes", cursive;
   margin: 0 0 0.8em;
   text-transform: uppercase;
 }
@@ -2053,6 +2115,7 @@ img {
 
 .love-sotry-section .story-grids {
   background-color: #fff;
+  opacity: 0.95;
   max-width: 770px;
   margin: 0 auto;
   padding: 65px 65px 0px; /* reduce bottom padding to remove extra white space */
@@ -2566,25 +2629,43 @@ img {
 .groomsmen-bridesmaid {
   text-align: center;
   padding-bottom: 0;
-  background: url("../images/Green/1.png") center center/cover no-repeat local;
+  background: linear-gradient(180deg, #fffdf8 0%, #f7f2ea 100%);
 }
 
 /* Principal sponsors (two columns) */
-.groomsmen-bridesmaid .principal-sponsors {
-  display: flex;
-  gap: 28px;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 22px;
+.principal-sponsors-column {
+  flex: 1;
+  min-width: 0;
+  max-width: calc(50% - 20px);
+  overflow: hidden;
 }
-.groomsmen-bridesmaid .principal-sponsors .sponsor-col {
-  flex: 0 0 48%;
-  max-width: 48%;
-  text-align: left;
+.principal-sponsors-column h2 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #2A6F7F;
 }
-.groomsmen-bridesmaid .principal-sponsors .sponsor-col.right { text-align: right; }
-.groomsmen-bridesmaid .principal-sponsors ul { list-style: none !important; margin: 0; padding-left: 0; }
-.groomsmen-bridesmaid .principal-sponsors li { margin: 6px 0; font-weight: 700; font-size: 14px; color: #333; }
+.principal-sponsors-column ul {
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+.principal-sponsors-column li {
+  margin: 6px 0;
+  font-weight: 700;
+  font-size: 14px;
+  color: #333;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+@media (max-width: 767px) {
+  .principal-sponsors-column {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
 @media (max-width: 767px) {
   .groomsmen-bridesmaid .principal-sponsors { flex-direction: column; gap: 12px; align-items: center; }
   .groomsmen-bridesmaid .principal-sponsors .sponsor-col { flex-basis: 100%; max-width: none; text-align: center; }
@@ -2786,6 +2867,158 @@ img {
   margin-top: 6px;
 }
 
+/* Enhanced Entourage Tab Styling */
+.entourage-tab-btn {
+  background: linear-gradient(135deg, #fdfaf4 0%, #f7f1e5 100%);
+  border: 2px solid #eadfce;
+  padding: 10px 20px;
+  border-radius: 26px;
+  font-weight: 600;
+  font-size: 0.96em;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  transform: scale(0.97);
+}
+
+.entourage-tab-btn:hover {
+  background: linear-gradient(135deg, #f4ebdc 0%, #f9f2e4 100%);
+  border-color: #cba56c;
+  box-shadow: 0 6px 18px rgba(177, 154, 86, 0.18);
+  transform: scale(1) translateY(-2px);
+  color: #1f5563;
+}
+
+.entourage-tab-btn.active {
+  background: linear-gradient(135deg, #b19a56 0%, #d3b47a 50%, #f0e0b3 100%);
+  color: #ffffff;
+  border-color: #a1833f;
+  box-shadow: 0 14px 38px rgba(177, 154, 86, 0.45),
+              inset 0 1px 0 rgba(255, 255, 255, 0.25),
+              inset 0 -3px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1) translateY(-4px);
+  font-weight: 700;
+  font-size: 1.05em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.28);
+  letter-spacing: 0.8px;
+  z-index: 10;
+}
+
+.entourage-tab-btn:focus {
+  outline: 3px solid rgba(42,111,127,0.12);
+  outline-offset: 3px;
+}
+
+
+.entourage-tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 100%);
+  animation: activeGlow 1.5s ease-in-out infinite;
+  opacity: 0;
+}
+
+.entourage-tab-btn.active::after {
+  opacity: 1;
+}
+
+.entourage-tab-btn i {
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.entourage-tab-btn:hover i {
+  transform: scale(1.2) rotate(5deg);
+  color: inherit;
+}
+
+.entourage-tab-btn.active i {
+  transform: scale(1.3) rotate(-5deg);
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: tabIconBounce 0.6s ease-out;
+}
+
+@keyframes activeGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes tabIconBounce {
+  0% { transform: scale(1.3) rotate(-5deg) translateY(-10px); opacity: 0; }
+  50% { transform: scale(1.35) rotate(-5deg) translateY(2px); }
+  100% { transform: scale(1.3) rotate(-5deg) translateY(0); opacity: 1; }
+}
+
+/* Entourage Card Styling */
+.entourage-card {
+  background: linear-gradient(145deg, rgba(255, 253, 248, 0.96) 0%, rgba(250, 244, 232, 0.94) 100%);
+  border: 1px solid #eadfce;
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(177, 154, 86, 0.12);
+  transition: all 0.3s ease;
+  min-width: 280px;
+}
+
+.entourage-card:hover {
+  box-shadow: 0 16px 36px rgba(177, 154, 86, 0.2);
+  transform: translateY(-4px);
+  border-color: #d3b47a;
+}
+
+.entourage-card-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.entourage-card:hover .entourage-card-header {
+  transform: scale(1.1);
+}
+
+/* Principal Sponsors Column */
+.principal-sponsors-column {
+  flex: 0 0 auto;
+  min-width: 280px;
+}
+
+/* Entourage Tab Content Animation */
+.entourage-tab-content {
+  animation: fadeInContent 0.5s ease-in-out forwards;
+  opacity: 1;
+  background: rgba(255, 253, 248, 0.9);
+  border: 1px solid rgba(234, 223, 206, 0.7);
+  border-radius: 14px;
+  padding: 16px 14px 28px;
+  box-shadow: 0 10px 28px rgba(177, 154, 86, 0.12);
+}
+
+@keyframes fadeInContent {
+  from { opacity: 0; transform: translateY(15px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.entourage-tab-content.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(15px) scale(0.98);
+  animation: fadeOutContent 0.3s ease-out forwards;
+}
+
+@keyframes fadeOutContent {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-15px) scale(0.98); }
+}
+
 /*--------------------------------------------------------------
 #1.2	gallery-section
 --------------------------------------------------------------*/
@@ -2936,15 +3169,14 @@ img {
 }
 
 .rsvp-section .rspv-form {
-  background-color: rgba(255, 255, 255, 0.85); /* Slightly opaque */
-  backdrop-filter: blur(4px); /* Optional: adds a frosted glass effect */
+  background-color: rgba(255, 255, 255, 0.88);
   max-width: 570px;
   margin: 0 auto;
   -webkit-box-shadow: 0px 14px 36.21px 14.79px rgba(134, 134, 134, 0.09);
   box-shadow: 0px 14px 36.21px 14.79px rgba(134, 134, 134, 0.09);
   text-align: center;
   position: relative;
-  padding: 65px 80px;
+  padding: 50px 50px;
 }
 
 @media (max-width: 767px) {
@@ -2960,7 +3192,7 @@ img {
   position: absolute;
   left: 12px;
   top: 12px;
-  opacity: 0.541;
+  opacity: 1;
   -webkit-box-shadow: 0px 14px 36.21px 14.79px rgba(134, 134, 134, 0.09);
   box-shadow: 0px 14px 36.21px 14.79px rgba(134, 134, 134, 0.09);
   pointer-events: none; /* allow clicks through to the form */
@@ -3071,7 +3303,7 @@ img {
 }
 
 .rsvp-section form textarea {
-  height: 120px;
+  height: 100px;
 }
 
 /*--------------------------------------------------------------
@@ -4520,32 +4752,17 @@ img {
 
 .strip-image {
     flex-shrink: 0;
-    height: auto;
-    /* Remove aspect-ratio to allow natural image proportions */
+    height: 250px;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .strip-image img {
-    width: auto;
-    max-height: 250px;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.3s ease-in-out;
-}
-@media (max-width: 600px) {
-  .strip-image {
-    height: auto;
-  }
-  .strip-image img {
-    max-height: 160px;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-  }
 }
 
 .strip-image:hover img {
