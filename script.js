@@ -341,7 +341,63 @@
         $(".fancybox").fancybox({
             openEffect  : "elastic",
             closeEffect : "elastic",
-            wrapCSS     : "project-fancybox-title-style"
+            wrapCSS     : "project-fancybox-title-style",
+            // Enable touch/swipe gestures for mobile devices
+            helpers : {
+                overlay : {
+                    locked: false // Allow scrolling on mobile
+                }
+            },
+            // Enable smooth transitions for swipe gestures
+            nextEffect  : 'fade',
+            prevEffect  : 'fade',
+            // Configure touch behavior
+            tpl: {
+                closeBtn: '<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>',
+                next: '<a title="Next (use arrow keys or swipe)" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
+                prev: '<a title="Previous (use arrow keys or swipe)" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
+            },
+            // Callback to add custom touch handling
+            beforeShow: function() {
+                // Enable touch gestures on the container
+                var instance = this;
+                
+                // Add touch event listeners for swipe gestures
+                var touchStartX = 0;
+                var touchEndX = 0;
+                var touchStartY = 0;
+                var touchEndY = 0;
+                var minSwipeDistance = 50; // minimum distance for a swipe
+                
+                $('.fancybox-wrap').on('touchstart', function(e) {
+                    touchStartX = e.originalEvent.touches[0].clientX;
+                    touchStartY = e.originalEvent.touches[0].clientY;
+                });
+                
+                $('.fancybox-wrap').on('touchend', function(e) {
+                    touchEndX = e.originalEvent.changedTouches[0].clientX;
+                    touchEndY = e.originalEvent.changedTouches[0].clientY;
+                    
+                    var deltaX = touchEndX - touchStartX;
+                    var deltaY = touchEndY - touchStartY;
+                    
+                    // Check if horizontal swipe is more significant than vertical
+                    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                        // Swipe left (next image)
+                        if (deltaX < -minSwipeDistance) {
+                            $.fancybox.next();
+                        }
+                        // Swipe right (previous image)
+                        else if (deltaX > minSwipeDistance) {
+                            $.fancybox.prev();
+                        }
+                    }
+                });
+            },
+            afterClose: function() {
+                // Clean up touch event listeners
+                $('.fancybox-wrap').off('touchstart touchend');
+            }
         });
     }
 

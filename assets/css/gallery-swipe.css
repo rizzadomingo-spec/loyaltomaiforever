@@ -1,0 +1,125 @@
+/*----------------------------------------------------------
+    Gallery Swipe Enhancement Styles
+    - Makes navigation arrows more visible on mobile
+    - Improves touch target size
+    - Adds visual feedback for swipe actions
+-----------------------------------------------------------*/
+
+/* Make navigation arrows always visible on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .fancybox-nav span {
+        visibility: visible !important;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+    }
+    
+    .fancybox-nav:active span {
+        opacity: 1;
+    }
+}
+
+/* Increase touch target size on mobile devices */
+@media (max-width: 768px) {
+    .fancybox-nav {
+        width: 50% !important;
+    }
+    
+    .fancybox-nav span {
+        width: 44px !important;
+        height: 44px !important;
+        margin-top: -22px !important;
+        background-size: 36px 108px !important;
+    }
+    
+    .fancybox-prev span {
+        left: 5px !important;
+    }
+    
+    .fancybox-next span {
+        right: 5px !important;
+    }
+}
+
+/* Add subtle hint for swipe gestures on mobile */
+.fancybox-opened {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Improve touch feedback */
+.fancybox-wrap {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: pan-y pinch-zoom;
+}
+
+/* Add smooth transitions for swipe */
+.fancybox-inner {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+/* Visual indicator hint (optional) */
+@media (max-width: 768px) {
+    .fancybox-opened::after {
+        content: "";
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        pointer-events: none;
+        z-index: 8050;
+        animation: swipeHint 2s ease-in-out infinite;
+    }
+}
+
+@keyframes swipeHint {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateX(-50%) scaleX(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateX(-50%) scaleX(1.2);
+    }
+}
+
+/* Hide hint after first interaction */
+.fancybox-opened.interacted::after {
+    display: none;
+}
+
+/* Improve close button visibility on mobile */
+@media (max-width: 768px) {
+    .fancybox-close {
+        width: 44px !important;
+        height: 44px !important;
+        background-size: 36px 36px !important;
+    }
+}
+
+/* Add subtle shadow to arrows for better visibility */
+.fancybox-nav span {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Ensure images don't interfere with swipe gestures */
+.fancybox-image {
+    pointer-events: none;
+}
+
+/* Make sure nav areas are clickable/tappable */
+.fancybox-nav {
+    pointer-events: auto;
+}
