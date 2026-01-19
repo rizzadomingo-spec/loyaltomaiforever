@@ -284,8 +284,12 @@
     -------------------------------------------*/
     // Add fade-in effect to sections on scroll
     $(document).ready(function() {
-        // Add fade-in class to all major sections
+        // Add fade-in class to all major sections, EXCLUDING hero texts
         $('section, .fade-scroll, [data-fade-scroll]').each(function() {
+            // Exclude hero texts
+            if ($(this).hasClass('couple-name') || $(this).attr('id') === 'curve-text' || $(this).closest('.hero-slider').length) {
+                return;
+            }
             $(this).addClass('fade-scroll-element');
             $(this).css('opacity', '0');
         });
@@ -298,6 +302,10 @@
         // Handle scroll event for fade-in
         function handleScrollFade() {
             $('.fade-scroll-element').each(function() {
+                // Extra guard: skip hero texts if any slipped through
+                if ($(this).hasClass('couple-name') || $(this).attr('id') === 'curve-text' || $(this).closest('.hero-slider').length) {
+                    return;
+                }
                 var elementTop = $(this).offset().top;
                 var elementBottom = elementTop + $(this).height();
                 var viewportTop = $(window).scrollTop();
@@ -872,7 +880,43 @@
         initVideoAutoplay();
     }
 
-
-})(window.jQuery);
-
+    /*==========================================================================
+    ENTOURAGE TAB FUNCTIONALITY
+    ==========================================================================*/
+    document.addEventListener('DOMContentLoaded', function() {
+        var tabBtns = document.querySelectorAll('.entourage-tab-btn');
+        
+        tabBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var tabName = this.getAttribute('data-tab');
+                
+                // Hide all tab contents
+                var tabContents = document.querySelectorAll('.entourage-tab-content');
+                tabContents.forEach(function(content) {
+                    content.classList.add('hidden');
+                    content.setAttribute('aria-hidden', 'true');
+                });
+                
+                // Remove active class from all buttons
+                tabBtns.forEach(function(b) {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                    b.setAttribute('tabindex', '-1');
+                });
+                
+                // Show selected tab content
+                var selectedTab = document.getElementById('tab-' + tabName);
+                if (selectedTab) {
+                    selectedTab.classList.remove('hidden');
+                    selectedTab.setAttribute('aria-hidden', 'false');
+                }
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                this.setAttribute('aria-selected', 'true');
+                this.setAttribute('tabindex', '0');
+            });
+        });
+    });
 
