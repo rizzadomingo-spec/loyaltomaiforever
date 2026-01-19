@@ -63,6 +63,10 @@
             <div class="slide-inner slide-bg-image" data-background="assets/images/slider/DSCF7143.png">
             </div> <!-- end slide-inner --> 
 
+            <div class="hero-lottie" aria-hidden="true">
+                <iframe src="https://lottie.host/embed/e24fda09-c2b9-4856-b020-9fb2fb16fe1a/siq2oEWAWa.lottie" title="Celebration animation"></iframe>
+            </div>
+
             <div id="spirit-header" class="spirit-header">
                 <canvas id="spirit-canvas"></canvas>
             </div>
@@ -335,7 +339,7 @@ Think elegant, romantic, and celebration-ready.</p><br>
                             </div> 
                             <div class="grid no-connector">
                                 <h3>Wishing Well</h3>
-                                <p><b>Your presence at our wedding is the greatest gift of all.</b></p>
+                                <p ></p><b>Your presence at our wedding is the greatest gift of all.</b></p>
                                 <p>If you would like to share a little extra love as we begin our life together, we have set up a <b>digital wishing well.</b> You may use the QR codes on this website.</p>
                                 <p>Thank you for your kindness, love, and support as we start this beautiful new chapter 🤍</p>
                                 <div class="qr-codes" aria-label="Digital wishing well QR codes">
@@ -397,166 +401,108 @@ Think elegant, romantic, and celebration-ready.</p><br>
 
         <!-- start groomsmen-bridesmaid section -->
         <section class="groomsmen-bridesmaid section-padding" id="people">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="section-title">
-                            <h2>The Entourage</h2>
-                        </div>
-                    </div>
+          <div class="container">
+            <div class="row">
+              <div class="col col-xs-12">
+                <div class="section-title">
+                  <h2>The Entourage</h2>
+                  <p>Meet the special people standing by our side</p>
                 </div>
-
-                <!-- Parents Section -->
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="entourage-section">
-                            <div class="entourage-card left-card">
-                                <h3 class="card-title">Groom's Parents</h3>
-                                <ul class="names-list">
-                                    <li>Mr. Rolando Dancel <span class="deceased" aria-label="deceased">†</span></li>
-                                    <li>Mrs. Juvilyn Dancel</li>
-                                </ul>
-                            </div>
-                            <div class="entourage-card right-card">
-                                <h3 class="card-title">Bride's Parents</h3>
-                                <ul class="names-list">
-                                    <li>Mr. Edgar Solijon</li>
-                                    <li>Mrs. Maxima Solijon</li>
-                                </ul>
-                            </div>
-                        </div>
+                                <div class="entourage-tabs" role="tablist" aria-label="Entourage sections" style="display:flex;gap:12px;justify-content:center;margin-bottom:48px;flex-wrap:wrap;">
+                                    <button class="entourage-tab-btn active" role="tab" aria-selected="true" tabindex="0" data-tab="parents"><i class="fa fa-users" style="margin-right:6px;"></i>Parents</button>
+                                    <button class="entourage-tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="principal"><i class="fa fa-star" style="margin-right:6px;"></i>Principal Sponsors</button>
+                                    <button class="entourage-tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="groomsmen"><i class="fa fa-heart" style="margin-right:6px;"></i>Groomsmen</button>
+                                    <button class="entourage-tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab="bridesmaids"><i class="fa fa-heart" style="margin-right:6px;"></i>Bridesmaids</button>
+                                </div>
+                <div class="entourage-tab-content" id="tab-parents" role="tabpanel" aria-hidden="false">
+                  <div class="entourage-group" style="display:flex;flex-wrap:wrap;gap:32px;justify-content:center;">
+                    <div class="entourage-card">
+                      <div class="entourage-card-header"><i class="fa fa-male" style="color:#2A6F7F;font-size:28px;margin-bottom:8px;"></i></div>
+                      <h3>Groom's Parents</h3>
+                      <ul style="font-size:1em;color:#555;list-style:none;padding:0;margin:0;">
+                        <li style="margin-bottom:10px;transition:all 0.3s;"><span style="display:inline-block;color:#6B8E7F;margin-right:4px;">♦</span>Mr. Rolando Dancel <span class="deceased" aria-label="deceased" style="color:#999;font-size:0.9em;">†</span></li>
+                        <li style="margin-bottom:0;transition:all 0.3s;"><span style="display:inline-block;color:#6B8E7F;margin-right:4px;">♦</span>Mrs. Juvilyn Dancel</li>
+                      </ul>
                     </div>
+                    <div class="entourage-card">
+                      <div class="entourage-card-header"><i class="fa fa-female" style="color:#D4A5A5;font-size:28px;margin-bottom:8px;"></i></div>
+                      <h3>Bride's Parents</h3>
+                      <ul style="font-size:1.1em;color:#555;list-style:none;padding:0;margin:0;">
+                        <li style="margin-bottom:10px;transition:all 0.3s;"><span style="display:inline-block;color:#6B8E7F;margin-right:4px;">♦</span>Mr. Edgar Solijon</li>
+                        <li style="margin-bottom:0;transition:all 0.3s;"><span style="display:inline-block;color:#6B8E7F;margin-right:4px;">♦</span>Mrs. Maxima Solijon</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-
-                <!-- Principal Sponsors Section -->
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="section-title no-flower">
-                            <h2>Principal Sponsors</h2>
-                        </div>
+                <div class="entourage-tab-content hidden" id="tab-principal" role="tabpanel" aria-hidden="true">
+                  <div class="entourage-group" style="display:flex;flex-wrap:wrap;gap:40px;justify-content:centered;max-width:100%;width:100%;">
+                    <div class="principal-sponsors-column" style="flex:2;min-width:0;max-width:calc(100% - 20px);">
+                
+                      <ul style="font-size:1.05em;color:#555;list-style:none;padding:0;margin:0;word-break:break-word;overflow-wrap:break-word;">
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#6B8E7F;">▸</span>Mr. Jhonny Espinola</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#6B8E7F;">▸</span>Mr. Melvin Joson</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#6B8E7F;">▸</span>Mr. Eder Ferrera</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#6B8E7F;">▸</span>Mr. Nino Ramos</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#6B8E7F;">▸</span>Mr. Sonny Santos</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#6B8E7F;">▸</span>Mr. Antolin Santos</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#6B8E7F;">▸</span>Mr. Dereck San Juan</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#6B8E7F;">▸</span>Mr. Jose Cabe</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#6B8E7F;">▸</span>Mr. Henry Galiga</li>
+                        <li style="margin-bottom:0;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#6B8E7F;">▸</span>Mr. Albert Santos</li>
+                      </ul>
                     </div>
+                    <div class="principal-sponsors-column" style="flex:2;min-width:0;max-width:calc(100% - 20px);">
+                      <ul style="font-size:1.05em;color:#555;list-style:none;padding:0;margin:0;word-break:break-word;overflow-wrap:break-word;">
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#D4A5A5;">◆</span>Mrs. Crecet Jose</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#D4A5A5;">◆</span>Mrs. Ruby Lopez</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#D4A5A5;">◆</span>Ms. Marian Dionisio</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#D4A5A5;">◆</span>Mrs. Julie Manahan</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#D4A5A5;">◆</span>Mrs. Jenny Blanza</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#D4A5A5;">◆</span>Mrs. Maejoy Callosa</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#D4A5A5;">◆</span>Mrs. Crispina Cruz</li>
+                        <li style="margin-bottom:8px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:#D4A5A5;">◆</span>Mrs. Mimi Jose</li>
+                        <li style="margin-bottom:8px;padding-left:15px;position:relative;"><span style="position:absolute;left:0;color:#D4A5A5;">◆</span>Mrs. Ma. Estrella Ong</li>
+                        <li style="margin-bottom:0;padding-left:15px;position:relative;"><span style="position:absolute;left:0;color:#D4A5A5;">◆</span>Mrs. Carmencita Policarpio</li>
+                      </ul>
+                    </div>
+                    <br>
+                  </div>
                 </div>
-                <div class="row">
-                    <div class="col col-sm-6 col-xs-12">
-                        <div class="sponsors-list">
-                            <h4 class="sponsors-subtitle"></h4>
-                            <ul>
-                                <li>Mr. Jhonny Espinola</li>
-                                <li>Mr. Melvin Joson</li>
-                                <li>Mr. Eder Ferrera</li>
-                                <li>Mr. Nino Angelo Ramos</li>
-                                <li>Mr. Sonny Santos</li>
-                                <li>Mr. Antolin Santos</li>
-                                <li>Mr. Dereck San Juan</li>
-                                <li>Mr. Jose Cabe</li>
-                                <li>Mr. Henry Galiga</li>
-                                <li>Mr. Albert Santos</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col col-sm-6 col-xs-12">
-                        <div class="sponsors-list">
-                            <h4 class="sponsors-subtitle"></h4>
-                            <ul>
-                                <li>Mrs. Crecet Jose</li>
-                                <li>Mrs. Ruby Lopez</li>
-                                <li>Ms. Marian Dionisio</li>
-                                <li>Mrs. Julie Manahan</li>
-                                <li>Mrs. Jenny Blanza</li>
-                                <li>Mrs. Maejoy Callosa</li>
-                                <li>Mrs. Crispina Cruz</li>
-                                <li>Mrs. Mimi Jose</li>
-                                <li>Mrs. Ma. Estrella Ong</li>
-                                <li>Mrs. Carmencita Policarpio</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Secondary Sponsors Section -->
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="section-title no-flower">
-                            <h2>Secondary Sponsors</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Best Man & Maids of Honor -->
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="entourage-section">
-                            <div class="entourage-card">
-                                <h3 class="card-title">Best Man</h3>
-                                <ul class="names-list">
-                                    <li>Mr. R-jay Dancel</li>
-                                </ul>
-                            </div>
-                            <div class="entourage-card">
-                                <h3 class="card-title">Maids of Honor</h3>
-                                <ul class="names-list">
-                                    <li>Ms. Kia Boboyo</li>
-                                    <li>Ms. Ma. Czarina Pelagio</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Wedding Entourage Grid -->
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="entourage-grid">
-                            <div class="entourage-member">
-                                <div class="member-info">
-                                    <h4>Mr. AJ Avenido</h4>
-                                    <h4>Ms. Raven Dabin</h4>
-                                    <p class="role">Candle</p>
+                                <div class="entourage-tab-content hidden" id="tab-groomsmen" role="tabpanel" aria-hidden="true">
+                                    <div class="entourage-group" style="display:flex;flex-direction:column;gap:24px;align-items:center;">
+                                        <div style="width:100%;max-width:780px;"><br>
+                                           
+                                            <ul style="font-size:1.08em;color:#555;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+                                                <li style="background:rgba(42,111,127,0.06);padding:12px;border-radius:8px;border-left:3px solid #2A6F7F;transition:all 0.3s;"><strong style="display:block;color:#000000;">Mr. R-jay Dancel</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Best Man</small></li>
+                                                <li style="background:rgba(42,111,127,0.06);padding:12px;border-radius:8px;border-left:3px solid #2A6F7F;transition:all 0.3s;"><strong style="display:block;color:#000000;">Mr. AJ Avenido</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Candle</small></li>
+                                                <li style="background:rgba(42,111,127,0.06);padding:12px;border-radius:8px;border-left:3px solid #2A6F7F;transition:all 0.3s;"><strong style="display:block;color:#000000;">Mr. Troylits Dancel</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Veil</small></li>
+                                                <li style="background:rgba(42,111,127,0.06);padding:12px;border-radius:8px;border-left:3px solid #2A6F7F;transition:all 0.3s;"><strong style="display:block;color:#000000;">Mr. Aristotle Solijon</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Cord</small></li>
+                                                <li style="background:rgba(42,111,127,0.06);padding:12px;border-radius:8px;border-left:3px solid #2A6F7F;transition:all 0.3s;"><strong style="display:block;color:#000000;">Mr. Mark John Solijon</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Ring Bearer</small></li>
+                                                <li style="background:rgba(42,111,127,0.06);padding:12px;border-radius:8px;border-left:3px solid #2A6F7F;transition:all 0.3s;"><strong style="display:block;color:#000000;">Mr. Ceejay Jimenez</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Coin Bearer</small></li>
+                                                <li style="background:rgba(42,111,127,0.06);padding:12px;border-radius:8px;border-left:3px solid #2A6F7F;transition:all 0.3s;"><strong style="display:block;color:#000000;">Mr. Tolits Dancel</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Bible Bearer</small></li>
+                                            </ul>
+                                            <p style="color:#7A92B0;margin-top:16px;font-size:0.95em;text-align:center;font-style:italic;">Each member plays a special role in our celebration.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="entourage-member">
-                                <div class="member-info">
-                                    <h4>Mr. Troylits Dancel</h4>
-                                    <h4>Ms. Rizza Domingo</h4>
-                                    <p class="role">Veil</p>
+                                <div class="entourage-tab-content hidden" id="tab-bridesmaids" role="tabpanel" aria-hidden="true">
+                                    <div class="entourage-group" style="display:flex;flex-direction:column;gap:24px;align-items:center;">
+                                        <div style="width:100%;max-width:780px;">
+                                            <ul style="font-size:1.08em;color:#555;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+                                                <li style="background:rgba(212,165,165,0.1);padding:12px;border-radius:8px;border-left:3px solid #D4A5A5;transition:all 0.3s;"><strong style="display:block;color:#2A6F7F;">Ms. Kia Boboyo</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Maid of Honor</small></li>
+                                                <li style="background:rgba(212,165,165,0.1);padding:12px;border-radius:8px;border-left:3px solid #D4A5A5;transition:all 0.3s;"><strong style="display:block;color:#2A6F7F;">Ms. Ma. Czarina Pelagio</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Maid of Honor</small></li>
+                                                <li style="background:rgba(212,165,165,0.1);padding:12px;border-radius:8px;border-left:3px solid #D4A5A5;transition:all 0.3s;"><strong style="display:block;color:#2A6F7F;">Ms. Raven Dabin</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Candle</small></li>
+                                                <li style="background:rgba(212,165,165,0.1);padding:12px;border-radius:8px;border-left:3px solid #D4A5A5;transition:all 0.3s;"><strong style="display:block;color:#2A6F7F;">Ms. Rizza Domingo</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Veil</small></li>
+                                                <li style="background:rgba(212,165,165,0.1);padding:12px;border-radius:8px;border-left:3px solid #D4A5A5;transition:all 0.3s;"><strong style="display:block;color:#2A6F7F;">Mrs. Jeralene Solijon</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Cord</small></li>
+                                                <li style="background:rgba(212,165,165,0.1);padding:12px;border-radius:8px;border-left:3px solid #D4A5A5;transition:all 0.3s;"><strong style="display:block;color:#2A6F7F;">Ms. Angelyn Dancel</strong> <small style="color:#696969;display:block;margin-top:4px;font-weight:500;">Flower Girl</small></li>
+                                            </ul>
+                                            <p style="font-family:'Muli',sans-serif;color:#7A92B0;margin-top:16px;font-size:0.95em;text-align:center;font-style:italic;">Each member plays a special role in our celebration.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="entourage-member">
-                                <div class="member-info">
-                                    <h4>Mr. Aristotle Solijon</h4>
-                                    <h4>Mrs. Jeralene Solijon</h4>
-                                    <p class="role">Cord</p>
-                                </div>
-                            </div>
-                            <div class="entourage-member">
-                                <div class="member-info">
-                                    <h4>Mr. Mark John Solijon</h4>
-                                    <p class="role">Ring Bearer</p>
-                                </div>
-                            </div>
-                            <div class="entourage-member">
-                                <div class="member-info">
-                                    <h4>Mr. Ceejay Jimenez</h4>
-                                    <p class="role">Coin Bearer</p>
-                                </div>
-                            </div>
-                            <div class="entourage-member">
-                                <div class="member-info">
-                                    <h4>Mr. Tolits Dancel</h4>
-                                    <p class="role">Bible Bearer</p>
-                                </div>
-                            </div>
-                            <div class="entourage-member">
-                                <div class="member-info">
-                                    <h4>Ms. Angelyn Dancel</h4>
-                                    <p class="role">Flower Girl</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- end container -->
+              </div>
+            </div>
+          </div>
         </section>
         <!-- end groomsmen-bridesmaid section -->
 
@@ -567,7 +513,7 @@ Think elegant, romantic, and celebration-ready.</p><br>
                 <div class="row">
                     <div class="col col-xs-12">
                         <div class="section-title">
-                            <h2>Our wedding gallery</h2>
+                            <br><br><br><h2>Our wedding gallery</h2>
                         </div>
                     </div>
                 </div>
@@ -723,7 +669,9 @@ Think elegant, romantic, and celebration-ready.</p><br>
                             <div class="couple-name">
                                 <h2>Jay-r <br>& <br>Marian</h2>
                             </div>
-                            <h3>Forever our love, Thank you</h3>
+                            <h3>We can't wait to celebrate with you!</h3>
+                            <br>
+                            <br><br><br>
                             <p>Copyright 2026.</p>
                                 <p>Made with love by Rizza Domingo</p>
                         </div>
@@ -787,6 +735,52 @@ Think elegant, romantic, and celebration-ready.</p><br>
 
     <!-- All JavaScript files
     ================================================== -->
+        <script>
+        // Accessible Entourage tabs: click + keyboard support
+        document.addEventListener('DOMContentLoaded', function() {
+            var tabBtns = Array.prototype.slice.call(document.querySelectorAll('.entourage-tab-btn'));
+            var tabContents = Array.prototype.slice.call(document.querySelectorAll('.entourage-tab-content'));
+
+            function activateTab(btn, setFocus) {
+                tabBtns.forEach(function(b) {
+                    var selected = (b === btn);
+                    b.classList.toggle('active', selected);
+                    b.setAttribute('aria-selected', selected ? 'true' : 'false');
+                    b.tabIndex = selected ? 0 : -1;
+                });
+                var tab = btn.getAttribute('data-tab');
+                tabContents.forEach(function(content) {
+                    var match = (content.id === 'tab-' + tab);
+                    content.classList.toggle('hidden', !match);
+                    content.setAttribute('aria-hidden', match ? 'false' : 'true');
+                });
+                if (setFocus) btn.focus();
+            }
+
+            tabBtns.forEach(function(btn, idx) {
+                btn.addEventListener('click', function() { activateTab(btn, false); });
+                btn.addEventListener('keydown', function(e) {
+                    var k = e.key || e.keyCode;
+                    var currentIndex = tabBtns.indexOf(document.activeElement);
+                    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 39) {
+                        e.preventDefault();
+                        var next = tabBtns[(idx + 1) % tabBtns.length];
+                        activateTab(next, true);
+                    } else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 37) {
+                        e.preventDefault();
+                        var prev = tabBtns[(idx - 1 + tabBtns.length) % tabBtns.length];
+                        activateTab(prev, true);
+                    } else if (k === 'Home') {
+                        e.preventDefault(); activateTab(tabBtns[0], true);
+                    } else if (k === 'End') {
+                        e.preventDefault(); activateTab(tabBtns[tabBtns.length - 1], true);
+                    } else if (k === 'Enter' || k === ' ' || k === 13 || k === 32) {
+                        e.preventDefault(); activateTab(btn, true);
+                    }
+                });
+            });
+        });
+        </script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 
